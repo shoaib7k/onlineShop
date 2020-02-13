@@ -1,0 +1,108 @@
+
+body {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:.75em;
+	background-color: #096;
+}
+#wrapper {
+	position:relative;
+	text-align: left;
+	margin: 0 auto;
+	width: 724px;
+	background: #ffc;
+	padding:5px;
+}
+#main {
+	padding: 50px 10px 10px 10px;
+}
+.validate {
+	position:absolute;
+	bottom:5px;
+	right:5px;
+}
+.validate img {
+	border:none; 
+}
+/*NAVIGATION*/
+ 
+/* reset browser defaults for unordered lists, to avoid possible unexpected behavior */ 
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+li {
+	padding:0;
+	margin:0;
+}
+/* wrapper helpful for positioning on page without messing with main menu style */
+#navwrap {
+	float:left;
+	padding-left:3px;
+	background-color:#ffc;
+}
+/* it helps to arrange menu styles in order of increasing specificity */
+/* first two styles, #nav li and #nav a apply to entire menu, unless over-ridden */
+
+#nav li {
+	float: left;
+	position: relative;
+	cursor: default;
+	background-color: white;/*line-height: 30px;*/
+	
+}
+#nav a {
+	font-weight: bold;
+	color: #fff;
+	text-align: center;   /* keeps text aligned in block.  do not put text-align on <li> or IE7 will put the submenu below the center of the top menu */
+	border-right:2px solid #ffc; /*border color matches background of wrapper */
+	text-decoration: none;
+	width:102px;    /*variable widths can be used too */
+	padding:8px 8px 8px 8px;  /*preferred to line height if menu items expand to two rows */
+	display: block;     /* without this, IE7 displays a nasty bug, in which the submenu is shifted to the right */
+	background: #069;  /* this sets a default color of the links, but is overridden by more specific background colors assigned later.  But important to keep this here regardless because it prevents an IE6 bug that can occur if the "a" element has no background color */
+}
+/* from here down, every style is in some way overriding the base styles */
+#nav a:hover {
+	background: #000;    /* background turns black on hover */
+	text-decoration:underline;   /* text changes from plain to underline on hover */
+}
+#nav li li {
+	float: none;  /* makes drop downs vertical instead of horizontal */
+}
+#nav li li a {
+	width:102px;  /* this can be omitted if subs have same width as main headings */
+	border-right:none; /* this is only really needed if the background color is different than the border color; in most layouts the border wouldn't be visible */
+}
+#nav li ul {
+	display: none;    /* submenu is not visible until hover or .over (driven by JS) */
+	position: absolute;  /* postioned absolutely, relative to parent <li> on top menu */
+	top: 100%;   /* 100% of containing element height = #nav li, so the top of the submenu ul is at the bottom of the parent li */
+	left: 0;  /* submenu lined up with the left side of the parent li.  move this if desired */
+}
+#nav li>ul {   /* overrides previous style for browsers that understand selector */
+	top: auto;
+	left: auto;
+}
+#nav li:hover ul, #nav li.over ul {
+	display: block;  /* overrides display:none to make submenu visible  NB! the .over class is the thing the javascript generates */
+}
+/* the following styles give the specific colors to specific li's and cascade down to any <a> elements in the submenus as well */
+li#stylesheets a {
+	background:#c66;
+}
+li#scripting a {
+	background: #069;
+}
+li#development a {
+	background: #096;
+}
+li#geekfaq a {
+	background: #c69;
+}
+li#links a {
+	background: #63f;
+}
+li#contacts a {
+	background:#996;
+}
